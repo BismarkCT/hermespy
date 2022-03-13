@@ -1,3 +1,7 @@
+"""
+    This example is to make a simple connection between two devices
+"""
+
 import matplotlib.pyplot as plt
 
 # Import required HermesPy modules
@@ -30,6 +34,8 @@ _, rx_symbols, rx_bits = rx_operator.receive()
 
 # Evaluate bit errors during transmission and visualize the received symbol constellation
 evaluator = BitErrorEvaluator(tx_operator, rx_operator)
+
+# Visualize results
 evaluator.evaluate().plot()
 rx_symbols.plot_constellation()
 plt.show()

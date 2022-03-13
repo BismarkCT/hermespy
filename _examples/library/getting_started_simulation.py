@@ -1,17 +1,20 @@
+"""
+    This example is to make a simple Monte Carlo simulation of device
+"""
+
 import matplotlib.pyplot as plt
 
 # Import required HermesPy modules
-from hermespy.channel import Channel
 from hermespy.simulation import Simulation
 from hermespy.modem import Modem, WaveformGeneratorPskQam, BitErrorEvaluator
 
 # Create a new HermesPy simulation scenario
 simulation = Simulation()
 
-# Create device
+# Create a new simulated device
 device = simulation.scenario.new_device()
 
-# Configure device operator
+# Add a modem at the simulated device
 operator = Modem()
 operator.waveform_generator = WaveformGeneratorPskQam(oversampling_factor=8)
 operator.device = device

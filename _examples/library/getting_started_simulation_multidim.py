@@ -1,5 +1,10 @@
+"""
+    This example is to make a simple multidimensional simulation of device
+"""
+
 import matplotlib.pyplot as plt
 
+# Import required HermesPy modules
 from hermespy.simulation.simulation import Simulation
 from hermespy.modem.modem import Modem
 from hermespy.modem.evaluators import BitErrorEvaluator, ThroughputEvaluator
@@ -23,15 +28,17 @@ simulation.add_evaluator(BitErrorEvaluator(modem, modem))
 simulation.add_evaluator(ThroughputEvaluator(modem, modem))
 
 # Configure simulation sweep dimensions
-snr_dimension = simulation.new_dimension('snr', [10, 8, 6, 4, 2, 1, 0.5, 0.25, .125, .0625])
-rep_dimension = simulation.new_dimension('repetitions', [1, 3, 5, 7, 9], modem.encoder_manager[0])
+snr_dimension = simulation.new_dimension(
+    'snr', [10, 8, 6, 4, 2, 1, 0.5, 0.25, .125, .0625])
+rep_dimension = simulation.new_dimension(
+    'repetitions', [1, 3, 5, 7, 9], modem.encoder_manager[0])
 snr_dimension.title = 'SNR'
 rep_dimension.title = 'Code Repetitions'
 
-# Run the simulation
+# Launch simulation campaign
 simulation.num_samples = 1000
 result = simulation.run()
 
-# Plot simulation results
+# Visualize results
 result.plot()
 plt.show()
