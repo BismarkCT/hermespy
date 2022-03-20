@@ -28,7 +28,7 @@ required_num_samples = min_num_samples
 C_0 = .4785
 C_1 = 30.2338
 
-# Funtion responsable to return a smallest item between C_0 and C_1 x (1 + |x|)^(-3)
+# Funtion responsable to return a smallest item between C_0 and C_1x(1 + |x|)^(-3)
 
 
 def cbe(x):
